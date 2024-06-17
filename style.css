@@ -1,0 +1,119 @@
+.gradient-background {
+  background: linear-gradient(300deg,#FEF395,#F6B673,#F29D80,#EE7983);
+  background-size: 100% 100%;
+  animation: gradient-animation 5s ease infinite;
+  height: 650px;
+}
+
+@keyframes gradient-animation {
+  0% {
+      background-position: 0% 50%;
+  }
+  50% {
+      background-position: 100% 50%;
+  }
+  100% {
+      background-position: 0% 50%;
+  }
+}
+
+.icon-square {
+  background-color: white;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.75rem;
+}
+
+.profile-img {
+  height: 100px;
+  border-radius: 50%;
+}
+
+hr {
+  border: none;
+  height: 3px;
+  color: #333; 
+  background-color: #333;
+}
+
+.no-gradient-background {
+  background-color: #ffffff;
+  margin-top: 150px;
+  padding-top: 10px;
+}
+
+h4 {
+  font-size: smaller;
+  color: black !important;
+}
+
+.container-fluid>.navbar-brand{
+  font-size: 70px;
+  font-family:serif;
+  text-align: center;
+}
+
+.carousel-inner img {
+  width: 300px;
+  height: 400px;
+  object-fit: cover;
+}
+
+#departments {
+  padding: 80px 0;
+}
+
+#departments .nav-link h4,
+#departments .tab-content h3,
+#departments .tab-content p.fst-italic {
+  color: black;
+}
+
+#departments .nav-tabs {
+  border-bottom: 2px solid black;
+}
+
+
+.bi.mobile-nav-toggle {
+  color: inherit; 
+}
+
+
+@media only screen and (max-width: 768px) {
+  .bi.mobile-nav-toggle {
+    color: black; 
+  }
+}
+.fa-bars{
+  color:#fff;
+  font-size:30px;
+}
+.navbar-toggler{
+  outline:none !important;
+}
+
+.faq-container {
+  max-width: 600px;
+  margin: 50px auto;
+  background-color: #fff;
+  padding: 20px;
+  border:3px solid black;
+  border-radius: 8px ;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.faq-question {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.faq-answer {
+  display: none;
+  margin-bottom: 20px;
+}
+
+.faq-question:hover {
+  color: black;
+}

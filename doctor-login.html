@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image:url(./medical-background-vector.jpg);
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 100px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px black;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            color: #555;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Doctor Login</h1>
+        <form id="doctorLoginForm">
+            <label for="doctorUsername">Username:</label>
+            <input type="text" id="doctorUsername" name="doctorUsername" required placeholder="Enter Your Name">
+
+            <label for="doctorPassword">Password:</label>
+            <input type="password" id="doctorPassword" name="doctorPassword" required placeholder="Enter Your Username">
+
+            <button type="button" onclick="doctorLogin()">Login</button>
+        </form>
+    </div>
+
+    <script>
+        const backendUrl = 'http://localhost:3000'; // Update with your actual backend URL
+        function doctorLogin() {
+            const username = document.getElementById('doctorUsername').value;
+            const password = document.getElementById('doctorPassword').value;
+            fetch(`${backendUrl}/login`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ username, password })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Login successful!');
+                    // Do something with the patient data, e.g., display it on the page
+                    console.log(data.patients);
+                } else {
+                    alert('Invalid credentials');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
+
+</body>
+</html>

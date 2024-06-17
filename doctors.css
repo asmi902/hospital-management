@@ -1,0 +1,35 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .container {
+        max-width: 1200px;
+    }
+
+    .doc-title {
+        color: #007bff;
+    }
+
+    .doc-qua {
+        font-weight: bold;
+        color: #28a745;
+    }
+
+    .btn-secondary {
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+
+    .btn-secondary:hover {
+        background-color: #0056b3;
+        border-color: #0056b3;
+    }
+
+    .doctor {
+        display: block;
+        margin-bottom: 20px;
+    }
+
+    .doctor.hidden {
+        display: none;
+    }

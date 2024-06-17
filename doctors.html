@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="doctors.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="import" href="appointment.html">
+    <style>
+        .filter-section {
+        background-color: #f8f9fa;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+    }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" id="NAV">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#" style="font-weight: bold; display: flex; align-items: center;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-heart-pulse-fill logo" viewBox="0 0 16 16">
+                    <path d="M1.475 9C2.702 10.84 4.779 12.871 8 15c3.221-2.129 5.298-4.16 6.525-6H12a.5.5 0 0 1-.464-.314l-1.457-3.642-1.598 5.593a.5.5 0 0 1-.945.049L5.889 6.568l-1.473 2.21A.5.5 0 0 1 4 9z"/>
+                    <path d="M.88 8C-2.427 1.68 4.41-2 7.823 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C11.59-2 18.426 1.68 15.12 8h-2.783l-1.874-4.686a.5.5 0 0 0-.945.049L7.921 8.956 6.464 5.314a.5.5 0 0 0-.88-.091L3.732 8z"/>
+                </svg>
+                <h2 class="ml-2 logo" style="font-weight: bold;">ZENITH</h2>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 50 50" style="height:30px;width:30px;">
+                <path d="M 0 7.5 L 0 12.5 L 50 12.5 L 50 7.5 Z M 0 22.5 L 0 27.5 L 50 27.5 L 50 22.5 Z M 0 37.5 L 0 42.5 L 50 42.5 L 50 37.5 Z"></path>
+                </svg>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto"> 
+                    <li class="nav-item" style="font-weight: bold;">
+                        <a class="nav-link active" aria-current="page" href="./index.html">SERVICES</a>
+                    </li>
+                    <li class="nav-item" style="font-weight: bold;">
+                        <a class="nav-link" href="doctors.html">DOCTORS</a>
+                    </li>
+                    <li class="nav-item" style="font-weight: bold;">
+                        <a class="nav-link" href="./virtual.html">VIRTUAL ASSISTANCE</a>
+                    </li>
+                    <li class="nav-item" style="font-weight: bold;">
+                        <a class="nav-link" href="./index.html">TESTIMONIALS</a>
+                    </li>
+                    <li class="nav-item" style="font-weight: bold;">
+                      <a class="nav-link" href="./index.html">FAQ's</a>
+                  </li>
+                    <span></span>
+                    <li class="nav-item" style="font-weight: bolder;">
+                        <button class="btn btn-success rounded-pill btn-sm" type="button" data-toggle="modal" data-target="#userTypeModal"style="width: 150px; height: 40px;background-color:#EE7983">
+                            LOGIN/SIGN UP
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="modal" id="userTypeModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="userTypeModalLabel">Select User Type</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you a doctor or a patient?</p>
+                    <button type="button" class="btn btn-primary" onclick="redirectToLogin('doctor')">Doctor</button>
+                    <button type="button" class="btn btn-primary" onclick="redirectToLogin('patient')">Patient</button>
+                </div>
+            </div>
+        </div>
+    </div>  
+    
+    <script>
+        function redirectToLogin(userType) {
+            $('#userTypeModal').modal('hide');
+            if (userType === 'doctor') {
+                window.location.href = 'doctor-login.html';
+            } else if (userType === 'patient') {
+                window.location.href = 'patient-login.html';
+            }
+        }
+    </script>
+    <div class="container col-xxl-8 px-4">
+        <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+            <div class="col-10 col-sm-8 col-lg-6">
+                <center>
+                    <img src="./depositphotos_11295010-stock-photo-group-of-doctor-at-hospital.jpg" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+                </center>
+            </div>
+            <div class="col-lg-6">
+                <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">On our way to teach you to love your life</h1>
+                <p class="lead">Our team of experienced and compassionate doctors is committed to providing you with the best possible care. We understand the importance of your health and well-being, and we are here to guide you on your journey to a healthier and happier life.</p>
+            </div>
+        </div>
+    </div>
+    <div class="container filter-section mt-5">
+        <h2>Filter Doctors</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <label for="locality">Locality:</label>
+                <select id="locality" class="form-select">
+                    <option value="all">All Localities</option>
+                    <!-- Add options for different localities -->
+                    <option value="indian">Indian Doctors</option>
+                    <option value="european">European Doctors</option>
+                    <option value="american">American Doctors</option>
+                    <!-- Add more options as needed -->
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label for="department">Department:</label>
+                <select id="department" class="form-select">
+                    <option value="all">All Departments</option>
+                    <!-- Add options for different departments -->
+                    <option value="anesthesiology">Anesthesiology</option>
+                    <option value="Pediatrics">Pediatrics</option>
+                    <option value="surgery">Surgery</option>
+                    <option value="Pediatrics">Pediatrics</option>
+                    <option value="Obstetrics and Gynecology">Obstetrics and Gynecology</option>
+                    <!-- Add more options as needed -->
+                </select>
+            </div>
+        </div>
+        <button class="btn btn-secondary mt-3" onclick="filterDoctors()">Apply Filter</button>
+    </div>
+
+    <div class="container marketing">
+        <div class="row doctor">
+            <div class="col-lg-4 doctors" data-locality="indian" data-department="anesthesiology">
+                <img src="https://kdahweb-static.kokilabenhospital.com/kdah-2019/product/1681300352.jpg" class="bd-placeholder-img rounded-circle" width="140" height="140"  role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect></img>
+                <h2 class="fw-normal"></h2>
+                <h2 class="doc-title">Dr. Zeeshan Charolia</h2>
+                    <h3 class="doc-qua">MBBS (Bachelor of Medicine, Bachelor of Surgery)</h3>
+                    <h4>Department</h4>
+                    <p>
+                    <a href="">Anaesthesiology</a>
+                    </p>
+                    <h4>Expertise</h4>
+                    <p>General Anesthesia for Various Surgeries</p>
+                    <p><a class="btn btn-secondary" href="appointment.html">View profile</a><p></p><a class="btn btn-secondary" href="appointment.html">Request Appointment</a></p>
+            </div><!-- /.col-lg-4 doctors -->
+            <div class="col-lg-4 doctors" data-locality="american" data-department="anesthesiology">
+                <img src="https://kdahweb-static.kokilabenhospital.com/kdah-2019/product/1681300352.jpg" class="bd-placeholder-img rounded-circle" width="140" height="140"  role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect></img>
+                <h2 class="fw-normal"></h2>
+                <h2 class="doc-title">Dr. Sanjna Deva</h2>
+                    <h3 class="doc-qua">MD (Doctor of Medicine) in Anesthesiology</h3>
+                    <h4>Department</h4>
+                    <p>
+                    <a href="">Anaesthesiology</a>
+                    </p>
+                    <h4>Expertise</h4>
+                    <p>Pain Management and Regional Anesthesia</p>
+                <p><a class="btn btn-secondary" href="#">View profile</a><p></p><a class="btn btn-secondary" href="appointment.html">Request Appointment</a></p>
+            </div><!-- /.col-lg-4 doctors -->
+            <div class="col-lg-4 doctors" data-locality="indian" data-department="Pediatrics">
+                <img src="https://kdahweb-static.kokilabenhospital.com/kdah-2019/product/1681300352.jpg" class="bd-placeholder-img rounded-circle" width="140" height="140"  role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect></img>
+                <h2 class="fw-normal"></h2>
+                <h2 class="doc-title">Dr. John Shaw</h2>
+                    <h3 class="doc-qua">MBBS (Bachelor of Medicine, Bachelor of Surgery)</h3>
+                    <h4>Department</h4>
+                    <p>
+                    <a href="">Pediatrics</a>
+                    </p>
+                    <h4>Expertise</h4>
+                    <p>General Pediatric Care</p>
+                <p><a class="btn btn-secondary" href="#">View profile</a><p></p><a class="btn btn-secondary" href="appointment.html">Request Appointment</a></p>
+            </div><!-- /.col-lg-4 doctors -->
+            <div class="col-lg-4 doctors" data-locality="indian" data-department="anesthesiology">
+                <img src="https://kdahweb-static.kokilabenhospital.com/kdah-2019/product/1681300352.jpg" class="bd-placeholder-img rounded-circle" width="140" height="140"  role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect></img>
+                <h2 class="fw-normal"></h2>
+                <h2 class="doc-title">Dr. Shello Law</h2>
+                    <h3 class="doc-qua">DA (Diploma in Anesthesia)</h3>
+                    <h4>Department</h4>
+                    <p>
+                    <a href="">Anaesthesiology</a>
+                    </p>
+                    <h4>Expertise</h4>
+                    <p> Perioperative Cardiovascular Assessment and Management</p>
+                <p><a class="btn btn-secondary" href="#">View profile</a><p></p><a class="btn btn-secondary" href="appointment.html">Request Appointment</a></p>
+            </div><!-- /.col-lg-4 doctors -->
+            <div class="col-lg-4 doctors" data-locality="european" data-department="Pediatrics">
+                <img src="./healthcare-medicine-profession-people-concept-portrait-happy-european-white-haired-doctor-girl-her-hand-her-face-243300130.webp" class="bd-placeholder-img rounded-circle" width="140" height="140"  role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect></img>
+                <h2 class="fw-normal"></h2>
+                <h2 class="doc-title">Dr. John Rodrigues</h2>
+                    <h3 class="doc-qua">MD (Doctor of Medicine) in Pediatrics</h3>
+                    <h4>Department</h4>
+                    <p>
+                    <a href="">Pediatrics</a>
+                    </p>
+                    <h4>Expertise</h4>
+                    <p>Pediatric Cardiology</p>
+                <p><a class="btn btn-secondary" href="#">View profile</a><p></p><a class="btn btn-secondary" href="appointment.html">Request Appointment</a></p>
+            </div><!-- /.col-lg-4 doctors -->
+            <div class="col-lg-4 doctors" data-locality="indian" data-department="anesthesiology">
+                <img src="https://kdahweb-static.kokilabenhospital.com/kdah-2019/product/1681300352.jpg" class="bd-placeholder-img rounded-circle" width="140" height="140"  role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect></img>
+                <h2 class="fw-normal"></h2>
+                <h2 class="doc-title">Dr. Bikaji </h2>
+                    <h3 class="doc-qua">Fellowship in Onco-Anesthesia and Chronic Cancer Pain</h3>
+                    <h4>Department</h4>
+                    <p>
+                    <a href="">Anaesthesiology</a>
+                    </p>
+                    <h4>Expertise</h4>
+                    <p>Onco-anaesthesia (Anaesthesia related to cancer surgery). HIPEC Surgery. Robotic surgeries and pre habilitation with Enhanced recovery after surgery.</p>
+                <p><a class="btn btn-secondary" href="#">View profile</a><p></p><a class="btn btn-secondary" href="appointment.html">Request Appointment</a></p>
+            </div><!-- /.col-lg-4 doctors -->
+            <div class="col-lg-4 doctors" data-locality="indian" data-department="Internal Medicine">
+                <img src="https://kdahweb-static.kokilabenhospital.com/kdah-2019/product/1681300352.jpg" class="bd-placeholder-img rounded-circle" width="140" height="140"  role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect></img>
+                <h2 class="fw-normal"></h2>
+                <h2 class="doc-title">Dr. Aryan Irani</h2>
+                    <h3 class="doc-qua">MBBS (Bachelor of Medicine, Bachelor of Surgery)</h3>
+                    <h4>Department</h4>
+                    <p>
+                    <a href="">Internal Medicine</a>
+                    </p>
+                    <h4>Expertise</h4>
+                    <p>Internal Medicine Consultations</p>
+                <p><a class="btn btn-secondary" href="#">View profile</a><p></p><a class="btn btn-secondary" href="appointment.html">Request Appointment</a></p>
+            </div><!-- /.col-lg-4 doctors -->
+            <div class="col-lg-4 doctors" data-locality="european" data-department="Pediatrics">
+                <img src="https://kdahweb-static.kokilabenhospital.com/kdah-2019/product/1681300352.jpg" class="bd-placeholder-img rounded-circle" width="140" height="140"  role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect></img>
+                <h2 class="fw-normal"></h2>
+                <h2 class="doc-title">Dr. Ezden Halo</h2>
+                    <h3 class="doc-qua">DCH (Diploma in Child Health)</h3>
+                    <h4>Department</h4>
+                    <p>
+                    <a href="">Pediatrics</a>
+                    </p>
+                    <h4>Expertise</h4>
+                    <p>Neonatology</p>
+                <p><a class="btn btn-secondary" href="#">View profile</a><p></p><a class="btn btn-secondary" href="appointment.html">Request Appointment</a></p>
+            </div><!-- /.col-lg-4 doctors -->
+            <div class="col-lg-4 doctors" data-locality="european" data-department="Surgery">
+                <img src="https://kdahweb-static.kokilabenhospital.com/kdah-2019/product/1681300352.jpg" class="bd-placeholder-img rounded-circle" width="140" height="140"  role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect></img>
+                <h2 class="fw-normal"></h2>
+                <h2 class="doc-title">Dr. Aditi Nayak</h2>
+                    <h3 class="doc-qua">MS (Master of Surgery) in General Surgery</h3>
+                    <h4>Department</h4>
+                    <p>
+                    <a href="">Surgery</a>
+                    </p>
+                    <h4>Expertise</h4>
+                    <p>General Surgery Procedures</p>
+                <p><a class="btn btn-secondary" href="#">View profile</a><p></p><a class="btn btn-secondary" href="appointment.html">Request Appointment</a></p>
+            </div><!-- /.col-lg-4 doctors -->
+            <div class="col-lg-4 doctors" data-locality="indian" data-department="Internal Medicine">
+                <img src="https://kdahweb-static.kokilabenhospital.com/kdah-2019/product/1681300352.jpg" class="bd-placeholder-img rounded-circle" width="140" height="140"  role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect></img>
+                <h2 class="fw-normal"></h2>
+                <h2 class="doc-title">Dr. Ananya Patel</h2>
+                    <h3 class="doc-qua">MD (Doctor of Medicine) in Internal Medicine</h3>
+                    <h4>Department</h4>
+                    <p>
+                    <a href=""> Internal Medicine</a>
+                    </p>
+                    <h4>Expertise</h4>
+                    <p>Rheumatology and Autoimmune Disorders</p>
+                <p><a class="btn btn-secondary" href="#">View profile</a><p></p><a class="btn btn-secondary" href="appointment.html">Request Appointment</a></p>
+            </div><!-- /.col-lg-4 doctors -->
+            <div class="col-lg-4 doctors" data-locality="american" data-department="Pediatrics">
+                <img src="https://kdahweb-static.kokilabenhospital.com/kdah-2019/product/1681300352.jpg" class="bd-placeholder-img rounded-circle" width="140" height="140"  role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect></img>
+                <h2 class="fw-normal"></h2>
+                <h2 class="doc-title">Dr. James Anderson</h2>
+                    <h3 class="doc-qua">Fellowship in Pediatric Intensive Care</h3>
+                    <h4>Department</h4>
+                    <p>
+                    <a href="">Pediatrics</a>
+                    </p>
+                    <h4>Expertise</h4>
+                    <p>Pediatric Infectious Diseases</p>
+                <p><a class="btn btn-secondary" href="#">View profile</a><p></p><a class="btn btn-secondary" href="appointment.html">Request Appointment</a></p>
+            </div>  
+            <div class="col-lg-4 doctors" data-locality="american" data-department="Surgery">
+                <img src="https://kdahweb-static.kokilabenhospital.com/kdah-2019/product/1681300352.jpg" class="bd-placeholder-img rounded-circle" width="140" height="140"  role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect></img>
+                <h2 class="fw-normal"></h2>
+                <h2 class="doc-title">Dr. Benjamin Taylor</h2>
+                    <h3 class="doc-qua">DNB (Diplomate of National Board) in Surgical Oncology</h3>
+                    <h4>Department</h4>
+                    <p>
+                    <a href="">Surgery</a>
+                    </p>
+                    <h4>Expertise</h4>
+                    <p>Minimally Invasive Surgery Techniques</p>
+                <p><a class="btn btn-secondary" href="#">View profile</a><p></p><a class="btn btn-secondary" href="appointment.html">Request Appointment</a></p>
+            </div><!-- /.col-lg-4 doctors -->
+            <div class="col-lg-4 doctors" data-locality="indian" data-department="Surgery">
+                <img src="https://kdahweb-static.kokilabenhospital.com/kdah-2019/product/1681300352.jpg" class="bd-placeholder-img rounded-circle" width="140" height="140"  role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect></img>
+                <h2 class="fw-normal"></h2>
+                <h2 class="doc-title">Dr. Aarav Kapoor</h2>
+                    <h3 class="doc-qua">Fellowship in Minimally Invasive Surgery</h3>
+                    <h4>Department</h4>
+                    <p>
+                    <a href="">Surgery</a>
+                    </p>
+                    <h4>Expertise</h4>
+                    <p>Surgical Oncology Interventions</p>
+                <p><a class="btn btn-secondary" href="#">View profile</a><p></p><a class="btn btn-secondary" href="appointment.html">Request Appointment</a></p>
+            </div><!-- /.col-lg-4 doctors -->
+            <div class="col-lg-4 doctors" data-locality="american" data-department="Obstetrics and Gynecology">
+                <img src="https://kdahweb-static.kokilabenhospital.com/kdah-2019/product/1681300352.jpg" class="bd-placeholder-img rounded-circle" width="140" height="140"  role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect></img>
+                <h2 class="fw-normal"></h2>
+                <h2 class="doc-title">Dr. Olivia Miller</h2>
+                    <h3 class="doc-qua">Fellowship in Reproductive Endocrinology</h3>
+                    <h4>Department</h4>
+                    <p>
+                    <a href="">Obstetrics and Gynecology</a>
+                    </p>
+                    <h4>Expertise</h4>
+                    <p>General Obstetrics and Gynecology Care</p>
+                <p><a class="btn btn-secondary" href="#">View profile</a><p></p><a class="btn btn-secondary" href="appointment.html">Request Appointment</a></p>
+            </div><!-- /.col-lg-4 doctors -->
+            <div class="col-lg-4 doctors" data-locality="indian" data-department="Obstetrics and Gynecology">
+                <img src="https://kdahweb-static.kokilabenhospital.com/kdah-2019/product/1681300352.jpg" class="bd-placeholder-img rounded-circle" width="140" height="140"  role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect></img>
+                <h2 class="fw-normal"></h2>
+                <h2 class="doc-title">Dr. Arjun Verma</h2>
+                    <h3 class="doc-qua">DGO (Diploma in Gynecology and Obstetrics)</h3>
+                    <h4>Department</h4>
+                    <p>
+                    <a href="">Obstetrics and Gynecology</a>
+                    </p>
+                    <h4>Expertise</h4>
+                    <p>Gynecologic Oncology</p>
+                <p><a class="btn btn-secondary" href="#">View profile</a><p></p><a class="btn btn-secondary" href="appointment.html">Request Appointment</a></p>
+            </div><!-- /.col-lg-4 doctors -->
+            <div class="col-lg-4 doctors" data-locality="american" data-department="Internal Medicine">
+                <img src="https://kdahweb-static.kokilabenhospital.com/kdah-2019/product/1681300352.jpg" class="bd-placeholder-img rounded-circle" width="140" height="140"  role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect></img>
+                <h2 class="fw-normal"></h2>
+                <h2 class="doc-title">Dr. Sophia Rodrigues</h2>
+                    <h3 class="doc-qua">DNB (Diplomate of National Board) in Rheumatology</h3>
+                    <h4>Department</h4>
+                    <p>
+                    <a href=""> Internal Medicine</a>
+                    </p>
+                    <h4>Expertise</h4>
+                    <p>Endocrinology and Metabolic Diseases</p>
+                <p><a class="btn btn-secondary" href="#">View profile</a><p></p><a class="btn btn-secondary" href="appointment.html">Request Appointment</a></p>
+            </div><!-- /.col-lg-4 doctors -->
+            <div class="col-lg-4 doctors" data-locality="european" data-department="Obstetrics and Gynecology">
+                <img src="./healthcare-medicine-profession-people-concept-portrait-happy-european-white-haired-doctor-girl-her-hand-her-face-243300130.webp" class="bd-placeholder-img rounded-circle" width="140" height="140"  role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect></img>
+                <h2 class="fw-normal"></h2>
+                <h2 class="doc-title">Dr. Emilie white</h2>
+                    <h3 class="doc-qua">MS (Master of Surgery) in Obstetrics and Gynecology</h3>
+                    <h4>Department</h4>
+                    <p>
+                    <a href="">Obstetrics and Gynecology</a>
+                    </p>
+                    <h4>Expertise</h4>
+                    <p>Reproductive Endocrinology and Fertility</p>
+                <p><a class="btn btn-secondary" href="#">View profile</a><p></p><a class="btn btn-secondary" href="appointment.html">Request Appointment</a></p>
+            </div><!-- /.col-lg-4 doctors -->
+            <div class="col-lg-4 doctors" data-locality="indian" data-department="Obstetrics and Gynecology">
+                <img src="https://kdahweb-static.kokilabenhospital.com/kdah-2019/product/1681300352.jpg" class="bd-placeholder-img rounded-circle" width="140" height="140"  role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect></img>
+                <h2 class="fw-normal"></h2>
+                <h2 class="doc-title">Dr. Krish Patel</h2>
+                    <h3 class="doc-qua">MBBS (Bachelor of Medicine, Bachelor of Surgery)</h3>
+                    <h4>Department</h4>
+                    <p>
+                    <a href=""> Obstetrics and Gynecology</a>
+                    </p>
+                    <h4>Expertise</h4>
+                    <p>High-Risk Pregnancy Management</p>
+                <p><a class="btn btn-secondary" href="#">View profile</a><p></p><a class="btn btn-secondary" href="appointment.html">Request Appointment</a></p>
+            </div><!-- /.col-lg-4 doctors -->
+            <div class="col-lg-4 doctors" data-locality="indian" data-department="Internal Medicine">
+                <img src="https://kdahweb-static.kokilabenhospital.com/kdah-2019/product/1681300352.jpg" class="bd-placeholder-img rounded-circle" width="140" height="140"  role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect></img>
+                <h2 class="fw-normal"></h2>
+                <h2 class="doc-title">Dr. Meera Khanna</h2>
+                    <h3 class="doc-qua">DNB (Diplomate of National Board) in Rheumatology</h3>
+                    <h4>Department</h4>
+                    <p>
+                    <a href="">Internal Medicine</a>
+                    </p>
+                    <h4>Expertise</h4>
+                    <p>Geriatric Medicine and Elderly Patient Care</p>
+                <p><a class="btn btn-secondary" href="#">View profile</a><p></p><a class="btn btn-secondary" href="appointment.html">Request Appointment</a></p>
+            </div><!-- /.col-lg-4 doctors -->
+            
+            
+        </div><!-- /.row -->
+        <hr class="featurette-divider">
+    
+        <!-- /END THE FEATURETTES -->
+</div>
+    <script>
+        function showAppointmentForm() {
+        // Show the appointment form
+        document.getElementById('appointment-form').style.display = 'block';
+        }
+        function filterDoctors() {
+            var selectedLocality = document.getElementById('locality').value;
+            var selectedDepartment = document.getElementById('department').value;
+    
+            var doctors = document.querySelectorAll('.doctors');
+    
+            doctors.forEach(function (doctor) {
+                var locality = doctor.getAttribute('data-locality');
+                var department = doctor.getAttribute('data-department');
+    
+                var isLocalityMatch = selectedLocality === 'all' || selectedLocality === locality;
+                var isDepartmentMatch = selectedDepartment === 'all' || selectedDepartment === department;
+    
+                if (isLocalityMatch && isDepartmentMatch) {
+                    doctor.style.display = 'block';
+                } else {
+                    doctor.style.display = 'none';
+                }
+            });
+        }
+    </script>
+    
+    <section id="footer" style="width:100%;">
+        <div class="footer-top" style="margin-top: 50px;background: linear-gradient(300deg,#FEF395,#F6B673,#F29D80,#EE7983);color:black;padding: 20px;width:100%;">
+          <div class="container">
+            <div class="row">
+      
+              <div class="col-lg-3 col-md-6">
+                <div class="footer-info">
+                  <h3>ZENITH</h3>
+                  <p>
+                    Clinton RD.<br>
+                    Washington ,DC<br><br>
+                    <strong>Phone:</strong> 1234567890<br>
+                    <strong>Email:</strong> ZENITH@25.com<br>
+                  </p>
+                  <div class="social-links mt-3">
+                    <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                    <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                    <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                    <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                    <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                  </div>
+                </div>
+              </div>
+      
+              
+      
+              <div class="col-lg-3 col-md-6 footer-links">
+                <h4>Our Services</h4>
+                <ul>
+                  <li><i class="bx bx-chevron-right"></i> <a href="#NAV">HOME</a></li>
+                  <li><i class="bx bx-chevron-right"></i> <a href="#services">SERVICES</a></li>
+                  <li><i class="bx bx-chevron-right"></i> <a href="./virtual.html">VIRTUAL ASSISTANCE</a></li>
+                  <li><i class="bx bx-chevron-right"></i> <a href="./doctors.html">DOCTORS</a></li>
+                  <li><i class="bx bx-chevron-right"></i> <a href="#cta">CONTACT US</a></li>
+                </ul>
+              </div>
+      
+              <div class="col-lg-4 col-md-6 footer-newsletter" >
+                <h4>Our Newsletter</h4>
+                <p>Sign up and get latest news aboutand resources in your box.</p>
+                <form action="" method="post">
+                  <input type="email" name="email"><input type="submit" value="Subscribe">
+                </form><br> <br>
+      
+              </div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-heart-pulse-fill logo" viewBox="0 0 16 16">
+                <path d="M1.475 9C2.702 10.84 4.779 12.871 8 15c3.221-2.129 5.298-4.16 6.525-6H12a.5.5 0 0 1-.464-.314l-1.457-3.642-1.598 5.593a.5.5 0 0 1-.945.049L5.889 6.568l-1.473 2.21A.5.5 0 0 1 4 9z"/>
+                <path d="M.88 8C-2.427 1.68 4.41-2 7.823 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C11.59-2 18.426 1.68 15.12 8h-2.783l-1.874-4.686a.5.5 0 0 0-.945.049L7.921 8.956 6.464 5.314a.5.5 0 0 0-.88-.091L3.732 8z"/>
+            </svg><br><hr>
+      
+            <div class="container text-center content"> <div class="social"><a href="https://www.facebook.com/practicegreenhealth/" rel="noopener noreferrer" target="_blank"><svg aria-hidden="true" class="svg-inline--fa fa-facebook-f fa-w-9" data-fa-i2svg="" data-icon="facebook-f" data-prefix="fab" height="25px" role="img" viewBox="0 0 264 512" width="25px" xmlns="http://www.w3.org/2000/svg"><path d="M76.7 512V283H0v-91h76.7v-71.7C76.7 42.4 124.3 0 193.8 0c33.3 0 61.9 2.5 70.2 3.6V85h-48.2c-37.8 0-45.1 18-45.1 44.3V192H256l-11.7 91h-73.6v229" fill="currentColor"></path></svg></a> <a href="https://twitter.com/pracgreenhealth" rel="noopener noreferrer" target="_blank"><svg aria-hidden="true" class="svg-inline--fa fa-twitter fa-w-16" data-fa-i2svg="" data-icon="twitter" data-prefix="fab" height="25px" role="img" viewBox="0 0 512 512" width="25px" xmlns="http://www.w3.org/2000/svg"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z" fill="currentColor"></path></svg></a> <a href="https://www.linkedin.com/company/practice-greenhealth/" rel="noopener noreferrer" target="_blank"><svg aria-hidden="true" class="svg-inline--fa fa-linkedin-in fa-w-14" data-fa-i2svg="" data-icon="linkedin-in" data-prefix="fab" height="25px" role="img" viewBox="0 0 448 512" width="25px" xmlns="http://www.w3.org/2000/svg"><path d="M100.3 448H7.4V148.9h92.9V448zM53.8 108.1C24.1 108.1 0 83.5 0 53.8S24.1 0 53.8 0s53.8 24.1 53.8 53.8-24.1 54.3-53.8 54.3zM448 448h-92.7V302.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V448h-92.8V148.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V448h-.1z" fill="currentColor"></path></svg></a> <a href="https://www.youtube.com/channel/UC5f0f49Z0PF27PQEm2sXdvA" rel="noopener noreferrer" target="_blank"><svg aria-hidden="true" class="svg-inline--fa fa-youtube fa-w-18" data-fa-i2svg="" data-icon="youtube" data-prefix="fab" height="25px" role="img" viewBox="0 0 576 512" width="25px" xmlns="http://www.w3.org/2000/svg"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z" fill="currentColor"></path></svg></a></div>
+          </div>
+        </div>
+        
+      
+      
+      </section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>
